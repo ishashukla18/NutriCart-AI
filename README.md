@@ -106,6 +106,12 @@ NutriCart/
 ![Landing Page](./screenshots/landing1.png)
 ![Landing Page](./screenshots/landing2.png)
 
+
+### Login Page
+
+![Login Page](./screenshots/login.png)
+
+
 ### Dashboard
 
 ![Dashboard](./screenshots/dashboard.png)

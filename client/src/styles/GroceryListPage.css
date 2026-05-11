@@ -1,0 +1,554 @@
+/* =========================================
+   GroceryListPage.css
+========================================= */
+
+.page-card{
+  background:#ffffff;
+  border-radius:28px;
+  padding:1.5rem;
+  border:1px solid rgba(37,99,235,.08);
+  box-shadow:0 20px 50px rgba(15,23,42,.06);
+}
+
+/* =========================================
+   LAYOUT
+========================================= */
+
+.grocery-layout{
+  display:grid;
+  grid-template-columns:1.45fr .7fr;
+  gap:1.5rem;
+}
+
+/* =========================================
+   STATS
+========================================= */
+
+.grocery-stats-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1rem;
+  margin-bottom:1.5rem;
+}
+
+.grocery-stat-card{
+  background:
+    linear-gradient(
+      135deg,
+      #ffffff 0%,
+      #eff6ff 100%
+    );
+
+  border-radius:24px;
+  padding:1.2rem;
+
+  border:1px solid rgba(37,99,235,.08);
+
+  box-shadow:0 10px 25px rgba(37,99,235,.05);
+}
+
+.grocery-stat-card span{
+  color:#5d6b80;
+  font-size:.88rem;
+  font-weight:600;
+}
+
+.grocery-stat-card h3{
+  margin-top:.65rem;
+  margin-bottom:0;
+  font-size:2rem;
+  font-weight:800;
+  color:#172033;
+}
+
+/* =========================================
+   TOPBAR
+========================================= */
+
+.grocery-topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:1rem;
+  margin-bottom:1.5rem;
+}
+
+.grocery-topbar h2{
+  margin:0;
+  font-size:1.8rem;
+  font-weight:800;
+  color:#172033;
+}
+
+.placeholder-text{
+  color:#5d6b80;
+}
+
+.grocery-actions{
+  display:flex;
+  gap:.75rem;
+  align-items:center;
+}
+
+.grocery-date{
+  min-height:48px;
+  border-radius:16px;
+  max-width:220px;
+  border:1px solid rgba(37,99,235,.12);
+}
+
+/* =========================================
+   GENERATE BUTTON
+========================================= */
+
+.generate-btn{
+  background:#2563eb;
+  color:#fff;
+  border:none;
+  border-radius:16px;
+  padding:.9rem 1.4rem;
+  font-weight:700;
+  transition:.2s ease;
+}
+
+.generate-btn:hover{
+  background:#1d4ed8;
+  transform:translateY(-1px);
+}
+
+/* =========================================
+   GROCERY LIST
+========================================= */
+
+.grocery-list{
+  display:flex;
+  flex-direction:column;
+  gap:1rem;
+}
+
+/* =========================================
+   GROCERY ITEM CARD
+========================================= */
+
+.grocery-item-card{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:1rem;
+
+  border-radius:22px;
+
+  padding:1rem;
+
+  border:1px solid rgba(37,99,235,.08);
+
+  background:
+    linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #f8fbff 100%
+    );
+
+  transition:.25s ease;
+}
+
+.grocery-item-card:hover{
+  transform:translateY(-2px);
+}
+
+/* =========================================
+   PURCHASED STATE
+========================================= */
+
+.purchased-card{
+  opacity:.82;
+  border-color:rgba(34,197,94,.18);
+  background:
+    linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #f0fdf4 100%
+    );
+}
+
+/* =========================================
+   LEFT SIDE
+========================================= */
+
+.grocery-left{
+  display:flex;
+  align-items:center;
+  gap:1rem;
+}
+
+.grocery-icon{
+  width:54px;
+  height:54px;
+  border-radius:18px;
+
+  background:#eff6ff;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-size:1.4rem;
+  flex-shrink:0;
+}
+
+.grocery-item-card h3{
+  margin:0;
+  color:#172033;
+  font-size:1rem;
+  font-weight:800;
+}
+
+.grocery-meta{
+  color:#5d6b80;
+  font-size:.85rem;
+  margin-top:.2rem;
+}
+
+/* =========================================
+   RIGHT SIDE
+========================================= */
+
+.grocery-right{
+  display:flex;
+  align-items:center;
+  gap:1rem;
+}
+
+/* =========================================
+   PRICE TAG
+========================================= */
+
+.price-tag{
+  background:#eff6ff;
+  color:#2563eb;
+  font-weight:800;
+  padding:.5rem .8rem;
+  border-radius:14px;
+  min-width:74px;
+  text-align:center;
+}
+
+/* =========================================
+   BUTTON GROUP
+========================================= */
+
+.grocery-buttons{
+  display:flex;
+  gap:.5rem;
+}
+
+/* =========================================
+   PURCHASE BUTTON
+========================================= */
+
+.purchase-btn{
+  background:#2563eb;
+  color:#fff;
+  border:none;
+  border-radius:14px;
+  padding:.72rem 1.05rem;
+  font-weight:700;
+  transition:.2s ease;
+}
+
+.purchase-btn:hover{
+  background:#1d4ed8;
+  transform:translateY(-1px);
+}
+
+/* =========================================
+   SKIP BUTTON
+========================================= */
+
+.skip-btn{
+  background:#fff7ed;
+  color:#f97316;
+  border:none;
+  border-radius:14px;
+  padding:.72rem 1.05rem;
+  font-weight:700;
+  transition:.2s ease;
+}
+
+.skip-btn:hover{
+  background:#ffedd5;
+}
+
+/* =========================================
+   PURCHASED BUTTON
+========================================= */
+
+.done-btn{
+  background:#22c55e;
+  color:#ffffff;
+  border:none;
+  border-radius:14px;
+  padding:.72rem 1.1rem;
+  font-weight:700;
+  min-width:120px;
+}
+
+/* =========================================
+   SKIPPED BUTTON
+========================================= */
+
+.skipped-btn{
+  background:#f97316;
+  color:#ffffff;
+  border:none;
+  border-radius:14px;
+  padding:.72rem 1.1rem;
+  font-weight:700;
+  min-width:120px;
+}
+
+/* =========================================
+   SIDEBAR
+========================================= */
+
+.grocery-sidebar{
+  display:flex;
+  flex-direction:column;
+  gap:1.5rem;
+}
+
+.sidebar-title{
+  font-size:1.15rem;
+  font-weight:800;
+  color:#172033;
+  margin-bottom:1rem;
+}
+
+/* =========================================
+   AI INSIGHTS
+========================================= */
+
+.ai-insights-list{
+  display:flex;
+  flex-direction:column;
+  gap:1rem;
+}
+
+.insight-card{
+  position:relative;
+
+  background:#f8fbff;
+
+  border-radius:20px;
+
+  padding:1rem;
+
+  overflow:hidden;
+}
+
+.insight-card::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:5px;
+}
+
+.insight-card.warning::before{
+  background:#dc2626;
+}
+
+.insight-card.expiry::before{
+  background:#f97316;
+}
+
+.insight-card.healthy::before{
+  background:#16a34a;
+}
+
+.insight-card.saving::before{
+  background:#7c3aed;
+}
+
+.insight-card strong{
+  display:block;
+  color:#172033;
+  margin-bottom:.3rem;
+}
+
+.insight-card span{
+  color:#5d6b80;
+  font-size:.88rem;
+  line-height:1.45;
+}
+
+/* =========================================
+   PROGRESS
+========================================= */
+
+.progress-circle{
+  width:140px;
+  height:140px;
+  margin:1rem auto;
+
+  border-radius:50%;
+
+  background:
+    radial-gradient(
+      closest-side,
+      #ffffff 74%,
+      transparent 75%
+    ),
+    conic-gradient(
+      #2563eb 0%,
+      #60a5fa 100%
+    );
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.progress-value{
+  font-size:2rem;
+  font-weight:800;
+  color:#172033;
+}
+
+.progress-label{
+  text-align:center;
+  color:#5d6b80;
+  margin-top:.5rem;
+}
+
+/* =========================================
+   MINI STATS
+========================================= */
+
+.mini-stats{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1rem;
+  margin-top:1.4rem;
+}
+
+.mini-stats div{
+  background:#f8fbff;
+  border-radius:18px;
+  padding:1rem;
+  text-align:center;
+}
+
+.mini-stats strong{
+  display:block;
+  font-size:1.5rem;
+  color:#172033;
+}
+
+.mini-stats span{
+  color:#5d6b80;
+  font-size:.82rem;
+}
+
+/* =========================================
+   EMPTY STATE
+========================================= */
+
+.empty-state{
+  text-align:center;
+  padding:3rem 1rem;
+}
+
+.empty-state h3{
+  font-size:1.3rem;
+  font-weight:800;
+  color:#172033;
+}
+
+.empty-state p{
+  color:#5d6b80;
+}
+
+.smart-empty{
+  color:#5d6b80;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media(max-width:1100px){
+
+  .grocery-layout{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:992px){
+
+  .grocery-stats-grid{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media(max-width:768px){
+
+  .grocery-topbar{
+    flex-direction:column;
+    align-items:stretch;
+  }
+
+  .grocery-actions{
+    flex-direction:column;
+    align-items:stretch;
+  }
+
+  .grocery-date{
+    max-width:100%;
+  }
+
+  .grocery-item-card{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .grocery-right{
+    width:100%;
+    flex-direction:column;
+    align-items:stretch;
+    gap:.8rem;
+  }
+
+  .price-tag{
+    width:100%;
+  }
+
+  .grocery-buttons{
+    width:100%;
+  }
+
+  .purchase-btn,
+  .skip-btn,
+  .done-btn,
+  .skipped-btn{
+    width:100%;
+  }
+}
+
+@media(max-width:576px){
+
+  .grocery-stats-grid{
+    grid-template-columns:1fr;
+  }
+
+  .page-card{
+    padding:1rem;
+    border-radius:22px;
+  }
+
+  .grocery-buttons{
+    flex-direction:column;
+    width:100%;
+  }
+}

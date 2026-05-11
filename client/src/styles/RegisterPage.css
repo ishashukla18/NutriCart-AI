@@ -1,0 +1,13 @@
+@import "./LoginPage.css";
+
+.auth-card {
+  max-width: 430px;
+  margin-top: clamp(9rem, 23vh, 12rem);
+}
+
+@media (max-width: 576px) {
+  .auth-card {
+    max-width: calc(100vw - 2rem);
+    margin-top: 10.75rem;
+  }
+}

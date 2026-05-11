@@ -1,0 +1,316 @@
+.auth-page {
+  position: relative;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  padding: 2rem;
+
+  background:
+    linear-gradient(
+      rgba(255, 255, 255, 0.62),
+      rgba(248, 250, 252, 0.68)
+    ),
+    url("../assets/images/login.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  color: #172033;
+}
+
+/* REMOVE OLD DECORATIONS */
+.auth-page::before,
+.auth-page::after,
+.auth-showcase,
+.auth-showcase::before,
+.auth-showcase::after {
+  display: none;
+}
+
+.auth-page-login::before,
+.auth-page-register::before {
+  content: none;
+}
+
+/* BRAND */
+.auth-brand {
+  position: absolute;
+  top: 1.5rem;
+  left: 2rem;
+
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+
+  z-index: 5;
+
+  color: #172033;
+  font-size: 1.45rem;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+}
+
+.auth-brand-mark {
+  width: 16px;
+  height: 16px;
+  border-radius: 6px;
+
+  background: linear-gradient(
+    145deg,
+    #3b5bdb 0%,
+    #f97316 100%
+  );
+
+  box-shadow: 0 0 0 8px rgba(59, 91, 219, 0.1);
+}
+
+/* HERO TEXT */
+.auth-showcase-copy {
+  position: absolute;
+  top: 4.5rem;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: min(92vw, 760px);
+
+  text-align: center;
+
+  z-index: 3;
+}
+
+.auth-kicker {
+  display: inline-block;
+
+  margin-bottom: 0.8rem;
+
+  padding: 0.45rem 0.9rem;
+
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.75);
+
+  color: #f97316;
+
+  font-size: 0.78rem;
+  font-weight: 900;
+
+  backdrop-filter: blur(10px);
+}
+
+.auth-showcase-copy h2 {
+  margin: 0 0 0.5rem;
+
+  color: #172033;
+
+  font-size: clamp(2rem, 4vw, 3.2rem);
+
+  line-height: 1.05;
+
+  font-weight: 900;
+}
+
+.auth-showcase-copy p {
+  margin: 0 auto;
+
+  max-width: 560px;
+
+  color: #475569;
+
+  line-height: 1.7;
+
+  font-weight: 500;
+}
+
+/* CARD */
+.auth-card {
+  position: relative;
+  z-index: 4;
+
+  width: 100%;
+  max-width: 390px;
+
+  margin-top: 9rem;
+
+  padding: 1.8rem;
+
+  border-radius: 1.5rem;
+
+  background: rgba(255, 255, 255, 0.78);
+
+  backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(255, 255, 255, 0.5);
+
+  box-shadow:
+    0 25px 70px rgba(15, 23, 42, 0.16);
+}
+
+.auth-title {
+  margin: 0 0 0.45rem;
+
+  text-align: center;
+
+  color: #172033;
+
+  font-size: 1.9rem;
+
+  font-weight: 900;
+}
+
+.auth-subtitle {
+  margin: 0 0 1.4rem;
+
+  text-align: center;
+
+  color: #64748b;
+
+  line-height: 1.6;
+}
+
+/* INPUTS */
+.auth-card .form-label {
+  color: #172033;
+
+  font-size: 0.9rem;
+
+  font-weight: 700;
+}
+
+.auth-card .form-control {
+  border-radius: 999px;
+
+  padding: 0.85rem 1rem;
+
+  border: 1px solid rgba(59, 91, 219, 0.14);
+
+  background: rgba(255, 255, 255, 0.74);
+
+  color: #172033;
+}
+
+.auth-card .form-control:focus {
+  background: #ffffff;
+
+  border-color: #3b5bdb;
+
+  box-shadow:
+    0 0 0 0.2rem rgba(59, 91, 219, 0.14);
+}
+
+/* BUTTON */
+.auth-card .btn-success {
+  background: linear-gradient(
+    135deg,
+    #3b5bdb 0%,
+    #223a7a 100%
+  );
+
+  border: 0;
+
+  color: #ffffff;
+
+  font-weight: 900;
+
+  box-shadow:
+    0 14px 30px rgba(59, 91, 219, 0.24);
+}
+
+.auth-card .btn-success:hover,
+.auth-card .btn-success:focus {
+  background: linear-gradient(
+    135deg,
+    #223a7a 0%,
+    #172033 100%
+  );
+
+  color: #ffffff;
+}
+
+/* FOOTER */
+.auth-footer-text {
+  margin-top: 1rem;
+
+  text-align: center;
+
+  color: #64748b;
+}
+
+.auth-footer-text a {
+  color: #f97316;
+
+  font-weight: 900;
+}
+
+/* TABLET */
+@media (max-width: 991px) {
+
+  .auth-page {
+    padding: 1.5rem;
+
+    background-position: center;
+  }
+
+  .auth-showcase-copy {
+    top: 5rem;
+  }
+
+  .auth-showcase-copy h2 {
+    font-size: 2.5rem;
+  }
+
+  .auth-card {
+    margin-top: 10rem;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 576px) {
+
+  .auth-page {
+    padding: 1rem;
+
+    background-position: center;
+  }
+
+  .auth-brand {
+    top: 1rem;
+    left: 1rem;
+
+    font-size: 1.15rem;
+  }
+
+  .auth-showcase-copy {
+    top: 4.8rem;
+
+    width: 100%;
+  }
+
+  .auth-showcase-copy h2 {
+    font-size: 2rem;
+
+    padding-inline: 0.5rem;
+  }
+
+  .auth-showcase-copy p {
+    font-size: 0.95rem;
+
+    padding-inline: 0.8rem;
+  }
+
+  .auth-card {
+    max-width: 100%;
+
+    margin-top: 8.5rem;
+
+    padding: 1.3rem;
+
+    border-radius: 1.3rem;
+  }
+
+  .auth-title {
+    font-size: 1.6rem;
+  }
+}

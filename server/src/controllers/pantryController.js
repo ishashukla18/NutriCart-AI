@@ -1,6 +1,9 @@
 const PantryItem = require("../models/PantryItem");
 
 
+const escapeRegExp = (value) =>
+  value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
 
 const getPantryItems = async (req, res) => {
   try {
@@ -50,11 +53,42 @@ const createPantryItem = async (req, res) => {
       );
     }
 
+    const existingItem = await PantryItem.findOne({
+      userId: req.user._id,
+      name: {
+        $regex: `^${escapeRegExp(name.trim())}$`,
+        $options: "i",
+      },
+      category: category || "Other",
+      unit,
+    });
+
+    if (existingItem) {
+      existingItem.quantity += Number(quantity);
+
+      if (expiryDate) {
+        existingItem.expiryDate = expiryDate;
+      }
+
+      if (price !== undefined) {
+        existingItem.price = price;
+      }
+
+      if (minimumStock !== undefined) {
+        existingItem.minimumStock = minimumStock;
+      }
+
+      const updatedItem = await existingItem.save();
+
+      res.status(200).json(updatedItem);
+      return;
+    }
+
     const item = await PantryItem.create({
 
       userId: req.user._id,
 
-      name,
+      name: name.trim(),
 
       category,
 

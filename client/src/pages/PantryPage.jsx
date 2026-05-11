@@ -645,6 +645,9 @@ function PantryPage() {
 
   const [success, setSuccess] = useState("");
 
+  const [quickAddPending, setQuickAddPending] =
+    useState("");
+
   const authConfig = () => ({
     headers: {
       Authorization: `Bearer ${getToken()}`,
@@ -796,8 +799,15 @@ function PantryPage() {
   const handleQuickAdd = async (
     item
   ) => {
+    const itemKey = `${item.category}:${item.name}:${item.unit}`;
+
+    if (quickAddPending === itemKey) {
+      return;
+    }
+
     setError("");
     setSuccess("");
+    setQuickAddPending(itemKey);
 
     try {
       const existingItem = items.find(
@@ -859,6 +869,8 @@ function PantryPage() {
         err.response?.data?.message ||
           "Failed to update pantry item"
       );
+    } finally {
+      setQuickAddPending("");
     }
   };
 
@@ -1082,12 +1094,19 @@ function PantryPage() {
             <div className="quick-add-grid">
 
               {quickAddItems.map(
-                (item) => (
+                (item) => {
+                  const itemKey = `${item.category}:${item.name}:${item.unit}`;
+
+                  return (
 
                   <button
                     type="button"
                     key={item.name}
                     className="quick-add-card"
+                    disabled={
+                      quickAddPending ===
+                      itemKey
+                    }
                     onClick={() =>
                       handleQuickAdd(item)
                     }
@@ -1110,7 +1129,8 @@ function PantryPage() {
                     </small>
 
                   </button>
-                )
+                  );
+                }
               )}
 
             </div>

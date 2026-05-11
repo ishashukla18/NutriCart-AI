@@ -1,9 +1,6 @@
 const Recipe = require("../models/Recipe");
 const PantryItem = require("../models/PantryItem");
 
-/* ================================= */
-/* GET ALL RECIPES */
-/* ================================= */
 
 const getRecipes = async (req, res) => {
   try {
@@ -25,9 +22,6 @@ const getRecipes = async (req, res) => {
   }
 };
 
-/* ================================= */
-/* GET SINGLE RECIPE */
-/* ================================= */
 
 const getRecipeById = async (req, res) => {
   try {
@@ -64,9 +58,6 @@ const getRecipeById = async (req, res) => {
   }
 };
 
-/* ================================= */
-/* CREATE RECIPE */
-/* ================================= */
 
 const createRecipe = async (req, res) => {
   try {
@@ -122,9 +113,6 @@ const createRecipe = async (req, res) => {
   }
 };
 
-/* ================================= */
-/* UPDATE RECIPE */
-/* ================================= */
 
 const updateRecipe = async (req, res) => {
   try {
@@ -171,9 +159,6 @@ const updateRecipe = async (req, res) => {
   }
 };
 
-/* ================================= */
-/* DELETE RECIPE */
-/* ================================= */
 
 const deleteRecipe = async (req, res) => {
   try {
@@ -215,9 +200,6 @@ const deleteRecipe = async (req, res) => {
   }
 };
 
-/* ================================= */
-/* SMART RECIPES */
-/* ================================= */
 
 const getSmartRecipes = async (req, res) => {
   try {
@@ -304,9 +286,6 @@ const getSmartRecipes = async (req, res) => {
   }
 };
 
-/* ================================= */
-/* COOK RECIPE */
-/* ================================= */
 
 const cookRecipe = async (req, res) => {
   try {
@@ -336,7 +315,6 @@ const cookRecipe = async (req, res) => {
 
     const missingIngredients = [];
 
-    /* CHECK INGREDIENTS */
 
     for (const ingredient of recipe.ingredients) {
 
@@ -366,7 +344,6 @@ const cookRecipe = async (req, res) => {
       });
     }
 
-    /* CONSUME INGREDIENTS */
 
     for (const ingredient of recipe.ingredients) {
 
@@ -399,7 +376,6 @@ const cookRecipe = async (req, res) => {
       }
     }
 
-    /* UPDATE RECIPE STATS */
 
     recipe.cookCount =
       (recipe.cookCount || 0) + 1;
@@ -425,9 +401,6 @@ const cookRecipe = async (req, res) => {
   }
 };
 
-/* ================================= */
-/* EXPORTS */
-/* ================================= */
 
 module.exports = {
   getRecipes,

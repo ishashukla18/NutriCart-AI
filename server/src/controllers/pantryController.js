@@ -1,9 +1,6 @@
 const PantryItem = require("../models/PantryItem");
 
 
-// ======================================
-// GET ALL ITEMS
-// ======================================
 
 const getPantryItems = async (req, res) => {
   try {
@@ -25,9 +22,6 @@ const getPantryItems = async (req, res) => {
 };
 
 
-// ======================================
-// CREATE ITEM
-// ======================================
 
 const createPantryItem = async (req, res) => {
 
@@ -90,9 +84,6 @@ const createPantryItem = async (req, res) => {
 };
 
 
-// ======================================
-// UPDATE ITEM
-// ======================================
 
 const updatePantryItem = async (
   req,
@@ -150,9 +141,6 @@ const updatePantryItem = async (
 };
 
 
-// ======================================
-// CONSUME ITEM
-// ======================================
 
 const consumePantryItem = async (
   req,
@@ -210,9 +198,6 @@ const consumePantryItem = async (
 };
 
 
-// ======================================
-// EXPIRING ITEMS
-// ======================================
 
 const getExpiringItems = async (
   req,
@@ -257,9 +242,6 @@ const getExpiringItems = async (
 };
 
 
-// ======================================
-// SMART GROCERY SUGGESTIONS
-// ======================================
 
 const getSmartSuggestions = async (
   req,
@@ -352,9 +334,6 @@ const getSmartSuggestions = async (
 };
 
 
-// ======================================
-// DELETE ITEM
-// ======================================
 
 const deletePantryItem = async (
   req,

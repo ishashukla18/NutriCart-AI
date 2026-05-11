@@ -1,6 +1,3 @@
-// ==========================================
-// routes/groceryRoutes.js
-// ==========================================
 
 const express = require("express");
 
@@ -23,9 +20,6 @@ const {
 const router =
   express.Router();
 
-// ==========================================
-// GENERATE LIST
-// ==========================================
 
 router.post(
   "/generate",
@@ -33,9 +27,6 @@ router.post(
   generateGroceryList
 );
 
-// ==========================================
-// ANALYTICS
-// ==========================================
 
 router.get(
   "/analytics/:weekStartDate",
@@ -43,9 +34,6 @@ router.get(
   getGroceryAnalytics
 );
 
-// ==========================================
-// AI INSIGHTS
-// ==========================================
 
 router.get(
   "/ai-insights/:weekStartDate",
@@ -53,9 +41,6 @@ router.get(
   getAiInsights
 );
 
-// ==========================================
-// GET LIST BY WEEK
-// ==========================================
 
 router.get(
   "/:weekStartDate",
@@ -63,9 +48,6 @@ router.get(
   getGroceryListByWeek
 );
 
-// ==========================================
-// UPDATE ITEM
-// ==========================================
 
 router.put(
   "/:id/item/:itemIndex",

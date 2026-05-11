@@ -105,9 +105,6 @@ function DashboardPage() {
         </div>
       )}
 
-      {/* ========================= */}
-      {/* STATS */}
-      {/* ========================= */}
 
       <section className="dash-stat-grid">
 
@@ -179,17 +176,12 @@ function DashboardPage() {
 
       </section>
 
-      {/* ========================= */}
-      {/* MAIN GRID */}
-      {/* ========================= */}
 
       <section className="dash-main-grid">
 
-        {/* LEFT */}
 
         <div className="dash-left">
 
-          {/* WEEKLY NUTRITION */}
 
           <article className="dash-panel">
 
@@ -274,7 +266,6 @@ function DashboardPage() {
 
           </article>
 
-          {/* LOW STOCK */}
 
           <article className="dash-panel">
 
@@ -338,7 +329,6 @@ function DashboardPage() {
 
           </article>
 
-          {/* RECENT ACTIVITY */}
 
           <article className="dash-panel">
 
@@ -393,11 +383,9 @@ function DashboardPage() {
 
         </div>
 
-        {/* RIGHT */}
 
         <div className="dash-right">
 
-          {/* SMART INSIGHTS */}
 
           <article className="dash-panel">
 
@@ -428,7 +416,6 @@ function DashboardPage() {
 
           </article>
 
-          {/* GROCERY */}
 
           <article className="dash-panel dark-panel">
 

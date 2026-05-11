@@ -29,9 +29,6 @@ const {
 const router = express.Router();
 
 
-// =============================
-// MAIN CRUD
-// =============================
 
 router
   .route("/")
@@ -39,9 +36,6 @@ router
   .post(protect, createPantryItem);
 
 
-// =============================
-// EXPIRING
-// =============================
 
 router.get(
   "/expiring",
@@ -50,9 +44,6 @@ router.get(
 );
 
 
-// =============================
-// SMART SUGGESTIONS
-// =============================
 
 router.get(
   "/smart-suggestions",
@@ -61,9 +52,6 @@ router.get(
 );
 
 
-// =============================
-// CONSUME ITEM
-// =============================
 
 router.put(
   "/consume/:id",
@@ -72,9 +60,6 @@ router.put(
 );
 
 
-// =============================
-// UPDATE / DELETE
-// =============================
 
 router
   .route("/:id")

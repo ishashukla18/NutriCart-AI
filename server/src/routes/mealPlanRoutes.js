@@ -17,9 +17,6 @@ const {
 
 const router = express.Router();
 
-/* ========================= */
-/* CREATE / SAVE PLAN */
-/* ========================= */
 
 router.post(
   "/",
@@ -27,9 +24,6 @@ router.post(
   createMealPlan
 );
 
-/* ========================= */
-/* GENERATE GROCERY */
-/* ========================= */
 
 router.post(
   "/generate-grocery",
@@ -37,9 +31,6 @@ router.post(
   generateGroceryList
 );
 
-/* ========================= */
-/* INSIGHTS */
-/* ========================= */
 
 router.get(
   "/insights/:weekStartDate",
@@ -47,9 +38,6 @@ router.get(
   getMealPlanInsights
 );
 
-/* ========================= */
-/* GET PLAN BY WEEK */
-/* ========================= */
 
 router.get(
   "/:weekStartDate",
@@ -57,9 +45,6 @@ router.get(
   getMealPlanByWeek
 );
 
-/* ========================= */
-/* UPDATE PLAN */
-/* ========================= */
 
 router.put(
   "/update/:id",

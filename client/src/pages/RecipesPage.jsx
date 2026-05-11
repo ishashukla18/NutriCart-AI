@@ -153,9 +153,6 @@ function RecipesPage() {
     },
   });
 
-  // ==========================================
-  // FETCH RECIPES
-  // ==========================================
 
   const fetchRecipes = async () => {
     try {
@@ -177,9 +174,6 @@ function RecipesPage() {
     }
   };
 
-  // ==========================================
-  // FETCH SMART RECIPES
-  // ==========================================
 
   const fetchSmartRecipes = async () => {
     try {
@@ -205,9 +199,6 @@ function RecipesPage() {
 
   }, []);
 
-  // ==========================================
-  // FILTERED RECIPES
-  // ==========================================
 
   const filteredRecipes = useMemo(() => {
 
@@ -227,9 +218,6 @@ function RecipesPage() {
 
   }, [recipes, search]);
 
-  // ==========================================
-  // QUICK ADD
-  // ==========================================
 
   const handleQuickAddRecipe = async (
     recipe
@@ -281,9 +269,6 @@ function RecipesPage() {
     }
   };
 
-  // ==========================================
-  // DELETE RECIPE
-  // ==========================================
 
   const handleDelete = async (id) => {
     try {
@@ -306,9 +291,6 @@ function RecipesPage() {
     }
   };
 
-  // ==========================================
-  // COOK RECIPE
-  // ==========================================
 
   const handleCookRecipe = async (id) => {
 
@@ -338,7 +320,6 @@ function RecipesPage() {
   return (
     <DashboardLayout title="Recipes">
 
-      {/* SMART RECIPES */}
 
       {smartRecipes.length > 0 && (
 
@@ -445,7 +426,6 @@ function RecipesPage() {
 
       <div className="row g-4">
 
-        {/* LEFT */}
 
         <div className="col-xl-5">
 
@@ -535,7 +515,6 @@ function RecipesPage() {
 
         </div>
 
-        {/* RIGHT */}
 
         <div className="col-xl-7">
 

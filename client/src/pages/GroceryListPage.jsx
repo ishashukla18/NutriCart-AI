@@ -18,9 +18,6 @@ import "../styles/GroceryListPage.css";
 
 function GroceryListPage() {
 
-  // ========================================
-  // TODAY DATE
-  // ========================================
 
   const getTodayDate = () => {
 
@@ -30,16 +27,12 @@ function GroceryListPage() {
 
   };
 
-  // ========================================
-  // STATES
-  // ========================================
 
   const [
     selectedDate,
     setSelectedDate,
   ] = useState(getTodayDate());
 
-  // NORMALIZED WEEK
   const weekStartDate =
     getWeekStartDate(selectedDate);
 
@@ -64,9 +57,6 @@ function GroceryListPage() {
   const [error, setError] =
     useState("");
 
-  // ========================================
-  // AUTH CONFIG
-  // ========================================
 
   const authConfig = {
     headers: {
@@ -74,9 +64,6 @@ function GroceryListPage() {
     },
   };
 
-  // ========================================
-  // FETCH ANALYTICS
-  // ========================================
 
   const fetchAnalytics =
     async () => {
@@ -99,9 +86,6 @@ function GroceryListPage() {
 
     };
 
-  // ========================================
-  // FETCH INSIGHTS
-  // ========================================
 
   const fetchInsights =
     async () => {
@@ -124,9 +108,6 @@ function GroceryListPage() {
 
     };
 
-  // ========================================
-  // FETCH EXISTING LIST
-  // ========================================
 
   const fetchExistingList =
     async () => {
@@ -149,9 +130,6 @@ function GroceryListPage() {
 
     };
 
-  // ========================================
-  // LOAD ON DATE CHANGE
-  // ========================================
 
   useEffect(() => {
 
@@ -163,9 +141,6 @@ function GroceryListPage() {
 
   }, [weekStartDate]);
 
-  // ========================================
-  // GENERATE GROCERY LIST
-  // ========================================
 
   const generateList =
     async () => {
@@ -207,9 +182,6 @@ function GroceryListPage() {
 
     };
 
-  // ========================================
-  // PURCHASE ITEM
-  // ========================================
 
   const togglePurchased =
     async (index) => {
@@ -241,9 +213,6 @@ function GroceryListPage() {
 
     };
 
-  // ========================================
-  // SKIP ITEM
-  // ========================================
 
   const skipItem =
     async (index) => {
@@ -275,9 +244,6 @@ function GroceryListPage() {
 
     };
 
-  // ========================================
-  // PURCHASE %
-  // ========================================
 
   const purchasePercent =
     useMemo(() => {
@@ -298,17 +264,11 @@ function GroceryListPage() {
 
     }, [analytics]);
 
-  // ========================================
-  // UI
-  // ========================================
 
   return (
 
     <DashboardLayout title="Grocery Intelligence">
 
-      {/* ================================= */}
-      {/* ANALYTICS */}
-      {/* ================================= */}
 
       {analytics && (
 
@@ -371,23 +331,14 @@ function GroceryListPage() {
 
       )}
 
-      {/* ================================= */}
-      {/* MAIN LAYOUT */}
-      {/* ================================= */}
 
       <div className="grocery-layout">
 
-        {/* ================================= */}
-        {/* LEFT SIDE */}
-        {/* ================================= */}
 
         <div>
 
           <div className="page-card">
 
-            {/* ============================= */}
-            {/* TOPBAR */}
-            {/* ============================= */}
 
             <div className="grocery-topbar">
 
@@ -427,9 +378,6 @@ function GroceryListPage() {
 
             </div>
 
-            {/* ============================= */}
-            {/* ALERTS */}
-            {/* ============================= */}
 
             {error && (
 
@@ -447,9 +395,6 @@ function GroceryListPage() {
 
             )}
 
-            {/* ============================= */}
-            {/* EMPTY STATE */}
-            {/* ============================= */}
 
             {!groceryList ||
             groceryList.items.length === 0 ? (
@@ -485,7 +430,6 @@ function GroceryListPage() {
                       }`}
                     >
 
-                      {/* LEFT */}
 
                       <div className="grocery-left">
 
@@ -510,7 +454,6 @@ function GroceryListPage() {
 
                       </div>
 
-                      {/* RIGHT */}
 
                       <div className="grocery-right">
 
@@ -578,15 +521,9 @@ function GroceryListPage() {
 
         </div>
 
-        {/* ================================= */}
-        {/* RIGHT SIDEBAR */}
-        {/* ================================= */}
 
         <div className="grocery-sidebar">
 
-          {/* ============================= */}
-          {/* AI INSIGHTS */}
-          {/* ============================= */}
 
           <div className="page-card">
 
@@ -634,9 +571,6 @@ function GroceryListPage() {
 
           </div>
 
-          {/* ============================= */}
-          {/* WEEKLY PROGRESS */}
-          {/* ============================= */}
 
           {analytics && (
 

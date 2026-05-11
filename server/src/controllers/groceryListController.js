@@ -5,9 +5,6 @@ const PantryItem = require("../models/PantryItem");
 const normalizeName = (value = "") =>
   value.trim().toLowerCase();
 
-// ==========================================
-// CATEGORY MAP
-// ==========================================
 
 const CATEGORY_MAP = {
   milk: "Dairy",
@@ -38,9 +35,6 @@ const CATEGORY_MAP = {
   mango: "Fruit",
 };
 
-// ==========================================
-// PRICE MAP
-// ==========================================
 
 const PRICE_MAP = {
   milk: 70,
@@ -62,9 +56,6 @@ const PRICE_MAP = {
   "green chilli": 120,
 };
 
-// ==========================================
-// UNIT MAP
-// ==========================================
 
 const INGREDIENT_UNIT_MAP = {
   milk: "litre",
@@ -98,9 +89,6 @@ const INGREDIENT_UNIT_MAP = {
   mango: "kg",
 };
 
-// ==========================================
-// ESTIMATE PRICE
-// ==========================================
 
 const estimatePrice = (
   itemName,
@@ -122,9 +110,6 @@ const estimatePrice = (
 
 };
 
-// ==========================================
-// GENERATE LIST
-// ==========================================
 
 const generateGroceryList =
   async (req, res) => {
@@ -143,9 +128,6 @@ const generateGroceryList =
 
       }
 
-      // ==========================================
-      // FIND MEAL PLAN
-      // ==========================================
 
       const mealPlan =
         await MealPlan.findOne({
@@ -167,9 +149,6 @@ const generateGroceryList =
 
       }
 
-      // ==========================================
-      // EXISTING LIST
-      // ==========================================
 
       const existingList =
         await GroceryList.findOne({
@@ -180,9 +159,6 @@ const generateGroceryList =
 
         });
 
-      // ==========================================
-      // STORE OLD STATUS
-      // ==========================================
 
       const existingItemsMap = {};
 
@@ -210,9 +186,6 @@ const generateGroceryList =
 
       }
 
-      // ==========================================
-      // PANTRY ITEMS
-      // ==========================================
 
       const pantryItems =
         await PantryItem.find({
@@ -242,9 +215,6 @@ const generateGroceryList =
 
       });
 
-      // ==========================================
-      // INGREDIENT MAP
-      // ==========================================
 
       const ingredientMap = {};
 
@@ -285,9 +255,6 @@ const generateGroceryList =
                 let finalQuantity =
                   ingredient.quantity;
 
-                // ==========================================
-                // CUP CONVERSION
-                // ==========================================
 
                 if (
                   normalizedUnit ===
@@ -322,9 +289,6 @@ const generateGroceryList =
 
                 }
 
-                // ==========================================
-                // PIECES CONVERSION
-                // ==========================================
 
                 else if (
                   normalizedUnit ===
@@ -372,9 +336,6 @@ const generateGroceryList =
                     finalQuantity
                   );
 
-                // ==========================================
-                // CREATE ITEM
-                // ==========================================
 
                 if (
                   !ingredientMap[key]
@@ -421,9 +382,6 @@ const generateGroceryList =
         }
       );
 
-      // ==========================================
-      // FINAL GROCERY ITEMS
-      // ==========================================
 
       const groceryItems = [];
 
@@ -498,9 +456,6 @@ const generateGroceryList =
 
       });
 
-      // ==========================================
-      // SAVE LIST
-      // ==========================================
 
       let groceryList =
         existingList;
@@ -544,9 +499,6 @@ const generateGroceryList =
 
   };
 
-// ==========================================
-// GET LIST
-// ==========================================
 
 const getGroceryListByWeek =
   async (req, res) => {
@@ -563,9 +515,6 @@ const getGroceryListByWeek =
 
         });
 
-      // ==========================================
-      // RETURN EMPTY STATE INSTEAD OF 404
-      // ==========================================
 
       if (!groceryList) {
 
@@ -597,9 +546,6 @@ const getGroceryListByWeek =
 
   };
 
-// ==========================================
-// UPDATE STATUS
-// ==========================================
 
 const updateGroceryItemStatus =
   async (req, res) => {
@@ -650,7 +596,6 @@ const updateGroceryItemStatus =
 
       }
 
-      // PURCHASE
 
       if (
         req.body.purchased === true
@@ -666,7 +611,6 @@ const updateGroceryItemStatus =
 
       }
 
-      // SKIP
 
       if (
         req.body.skipped === true
@@ -682,7 +626,6 @@ const updateGroceryItemStatus =
 
       }
 
-      // RESET
 
       if (
         req.body.purchased ===
@@ -716,9 +659,6 @@ const updateGroceryItemStatus =
 
   };
 
-// ==========================================
-// ANALYTICS
-// ==========================================
 
 const getGroceryAnalytics =
   async (req, res) => {
@@ -808,9 +748,6 @@ const getGroceryAnalytics =
 
   };
 
-// ==========================================
-// AI INSIGHTS
-// ==========================================
 
 const getAiInsights =
   async (req, res) => {

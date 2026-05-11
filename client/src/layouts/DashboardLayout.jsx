@@ -73,14 +73,12 @@ function DashboardLayout({
   return (
     <div className="dashboard-shell">
 
-      {/* BACKGROUND BLOBS */}
 
       <div className="bg-blur bg-one"></div>
       <div className="bg-blur bg-two"></div>
 
       <div className="dashboard-main container">
 
-        {/* HEADER */}
 
         <header className="app-header">
 
@@ -113,7 +111,6 @@ function DashboardLayout({
 
         </header>
 
-        {/* DESKTOP NAV */}
 
         <nav className="top-nav d-none d-md-flex">
 
@@ -143,7 +140,6 @@ function DashboardLayout({
 
         </nav>
 
-        {/* PAGE */}
 
         <main className="page-content">
           {children}
@@ -151,7 +147,6 @@ function DashboardLayout({
 
       </div>
 
-      {/* MOBILE NAV */}
 
       <nav className="bottom-nav d-md-none">
 

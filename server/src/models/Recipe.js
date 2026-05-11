@@ -1,8 +1,5 @@
 const mongoose = require("mongoose");
 
-// ==========================================
-// INGREDIENT SCHEMA
-// ==========================================
 
 const ingredientSchema = new mongoose.Schema(
   {
@@ -29,9 +26,6 @@ const ingredientSchema = new mongoose.Schema(
   }
 );
 
-// ==========================================
-// NUTRITION SCHEMA
-// ==========================================
 
 const nutritionSchema = new mongoose.Schema(
   {
@@ -64,15 +58,9 @@ const nutritionSchema = new mongoose.Schema(
   }
 );
 
-// ==========================================
-// RECIPE SCHEMA
-// ==========================================
 
 const recipeSchema = new mongoose.Schema(
   {
-    // ======================================
-    // USER
-    // ======================================
 
     userId: {
       type: mongoose.Schema.Types.ObjectId,
@@ -80,9 +68,6 @@ const recipeSchema = new mongoose.Schema(
       required: true,
     },
 
-    // ======================================
-    // BASIC DETAILS
-    // ======================================
 
     title: {
       type: String,
@@ -101,9 +86,6 @@ const recipeSchema = new mongoose.Schema(
       default: "",
     },
 
-    // ======================================
-    // MEAL INFO
-    // ======================================
 
     mealType: {
       type: String,
@@ -138,9 +120,6 @@ const recipeSchema = new mongoose.Schema(
       default: "Easy",
     },
 
-    // ======================================
-    // INGREDIENTS
-    // ======================================
 
     ingredients: {
       type: [ingredientSchema],
@@ -157,27 +136,18 @@ const recipeSchema = new mongoose.Schema(
       },
     },
 
-    // ======================================
-    // STEPS
-    // ======================================
 
     steps: {
       type: [String],
       default: [],
     },
 
-    // ======================================
-    // TAGS
-    // ======================================
 
     tags: {
       type: [String],
       default: [],
     },
 
-    // ======================================
-    // NUTRITION
-    // ======================================
 
     nutrition: {
       type: nutritionSchema,
@@ -185,9 +155,6 @@ const recipeSchema = new mongoose.Schema(
       default: () => ({}),
     },
 
-    // ======================================
-    // SMART ANALYTICS
-    // ======================================
 
     cookCount: {
       type: Number,
@@ -211,9 +178,6 @@ const recipeSchema = new mongoose.Schema(
       max: 100,
     },
 
-    // ======================================
-    // SYSTEM FIELDS
-    // ======================================
 
     createdByAI: {
       type: Boolean,
@@ -225,9 +189,6 @@ const recipeSchema = new mongoose.Schema(
   }
 );
 
-// ==========================================
-// AUTO DIFFICULTY + HEALTH SCORE
-// ==========================================
 
 recipeSchema.pre("save", function () {
 
@@ -237,9 +198,6 @@ recipeSchema.pre("save", function () {
   const stepCount =
     this.steps?.length || 0;
 
-  // ======================================
-  // AUTO DIFFICULTY
-  // ======================================
 
   if (
     ingredientCount <= 5 &&
@@ -267,31 +225,24 @@ recipeSchema.pre("save", function () {
 
   }
 
-  // ======================================
-  // AUTO HEALTH SCORE
-  // ======================================
 
   let score = 50;
 
-  // protein bonus
 
   if (this.nutrition?.protein >= 15) {
     score += 20;
   }
 
-  // balanced carbs
 
   if (this.nutrition?.carbs <= 40) {
     score += 10;
   }
 
-  // high fat penalty
 
   if (this.nutrition?.fat >= 25) {
     score -= 15;
   }
 
-  // calorie balance
 
   if (
     this.nutrition?.calories >= 200 &&
@@ -300,7 +251,6 @@ recipeSchema.pre("save", function () {
     score += 15;
   }
 
-  // healthy tags
 
   const healthyTags = [
     "healthy",
@@ -319,7 +269,6 @@ recipeSchema.pre("save", function () {
 
   score += matchedHealthyTags.length * 2;
 
-  // clamp score
 
   score = Math.max(
     0,
@@ -330,9 +279,6 @@ recipeSchema.pre("save", function () {
 
 });
 
-// ==========================================
-// EXPORT
-// ==========================================
 
 module.exports = mongoose.model(
   "Recipe",

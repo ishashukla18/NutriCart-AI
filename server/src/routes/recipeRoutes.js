@@ -14,9 +14,6 @@ const { protect } = require("../middleware/authMiddleware");
 
 const router = express.Router();
 
-/* ========================= */
-/* SMART RECIPES */
-/* ========================= */
 
 router.get(
   "/smart-recipes",
@@ -24,9 +21,6 @@ router.get(
   getSmartRecipes
 );
 
-/* ========================= */
-/* COOK NOW */
-/* ========================= */
 
 router.put(
   "/cook/:id",
@@ -34,9 +28,6 @@ router.put(
   cookRecipe
 );
 
-/* ========================= */
-/* MAIN ROUTES */
-/* ========================= */
 
 router
   .route("/")

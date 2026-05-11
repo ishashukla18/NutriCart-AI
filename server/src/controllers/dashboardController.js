@@ -7,9 +7,6 @@ const getDashboardSummary = async (req, res) => {
   try {
     const { weekStartDate } = req.query;
 
-    // =========================================
-    // BASIC COUNTS
-    // =========================================
 
     const totalPantryItems =
       await PantryItem.countDocuments({
@@ -21,9 +18,6 @@ const getDashboardSummary = async (req, res) => {
         userId: req.user._id,
       });
 
-    // =========================================
-    // EXPIRING ITEMS
-    // =========================================
 
     const today = new Date();
 
@@ -42,9 +36,6 @@ const getDashboardSummary = async (req, res) => {
         },
       });
 
-    // =========================================
-    // LOW STOCK
-    // =========================================
 
     const lowStockItems =
       await PantryItem.find({
@@ -57,9 +48,6 @@ const getDashboardSummary = async (req, res) => {
         },
       });
 
-    // =========================================
-    // PANTRY HEALTH SCORE
-    // =========================================
 
     const pantryItems =
       await PantryItem.find({
@@ -92,9 +80,6 @@ const getDashboardSummary = async (req, res) => {
           )
         : 0;
 
-    // =========================================
-    // MONEY SAVED ESTIMATE
-    // =========================================
 
     let moneySavedEstimate = 0;
 
@@ -104,9 +89,6 @@ const getDashboardSummary = async (req, res) => {
         (item.quantity || 0);
     });
 
-    // =========================================
-    // WEEKLY NUTRITION
-    // =========================================
 
     const recipes = await Recipe.find({
       userId: req.user._id,
@@ -133,9 +115,6 @@ const getDashboardSummary = async (req, res) => {
         recipe.nutrition?.fat || 0;
     });
 
-    // =========================================
-    // SMART INSIGHTS
-    // =========================================
 
     const smartInsights = [];
 
@@ -163,9 +142,6 @@ const getDashboardSummary = async (req, res) => {
       );
     }
 
-    // =========================================
-    // RECENT ACTIVITY
-    // =========================================
 
     const recentPantry =
       await PantryItem.find({
@@ -201,9 +177,6 @@ const getDashboardSummary = async (req, res) => {
         new Date(a.time)
     );
 
-    // =========================================
-    // MEAL PLAN + GROCERY
-    // =========================================
 
     let plannedMeals = 0;
 
@@ -240,9 +213,6 @@ const getDashboardSummary = async (req, res) => {
       }
     }
 
-    // =========================================
-    // RESPONSE
-    // =========================================
 
     res.json({
       totalPantryItems,

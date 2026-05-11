@@ -160,9 +160,6 @@ const getMealPlanInsights = async (
 
     const smartSuggestions = [];
 
-    // ====================================
-    // EXPIRY ALERTS
-    // ====================================
 
     const expiringItems =
       pantryItems.filter((item) => {
@@ -193,9 +190,6 @@ const getMealPlanInsights = async (
 
     }
 
-    // ====================================
-    // MEAL ANALYSIS
-    // ====================================
 
     let totalIngredients = 0;
     let matchedIngredients = 0;
@@ -231,9 +225,6 @@ const getMealPlanInsights = async (
 
     });
 
-    // ====================================
-    // PANTRY COMPATIBILITY
-    // ====================================
 
     const pantryMatch =
       totalIngredients > 0
@@ -253,9 +244,6 @@ const getMealPlanInsights = async (
         `${pantryMatch}% ingredients already available`,
     });
 
-    // ====================================
-    // LOW PROTEIN
-    // ====================================
 
     if (totalProtein < 120) {
 
@@ -268,9 +256,6 @@ const getMealPlanInsights = async (
 
     }
 
-    // ====================================
-    // LOW CALORIES
-    // ====================================
 
     if (totalCalories < 7000) {
 
@@ -283,9 +268,6 @@ const getMealPlanInsights = async (
 
     }
 
-    // ====================================
-    // HEALTH SCORE
-    // ====================================
 
     if (
       totalProtein >= 120 &&
@@ -301,9 +283,6 @@ const getMealPlanInsights = async (
 
     }
 
-    // ====================================
-    // GROCERY DEPENDENCY
-    // ====================================
 
     if (pantryMatch < 60) {
 
@@ -316,9 +295,6 @@ const getMealPlanInsights = async (
 
     }
 
-    // ====================================
-    // MEAL DIVERSITY
-    // ====================================
 
     const uniqueRecipes =
       new Set(
@@ -342,9 +318,6 @@ const getMealPlanInsights = async (
 
     }
 
-    // ====================================
-    // FINAL RESPONSE
-    // ====================================
 
     res.json({
 

@@ -65,9 +65,6 @@ const weekStartDate =
     },
   };
 
-  // ====================================
-  // FETCH RECIPES
-  // ====================================
 
   useEffect(() => {
 
@@ -97,9 +94,6 @@ const weekStartDate =
 
   }, []);
 
-  // ====================================
-  // FETCH INSIGHTS
-  // ====================================
 
   const fetchInsights =
     async () => {
@@ -121,9 +115,6 @@ const weekStartDate =
     }
   };
 
-  // ====================================
-  // HANDLE SELECT
-  // ====================================
 
   const handleSelect = (
     day,
@@ -156,9 +147,6 @@ const weekStartDate =
     });
   };
 
-  // ====================================
-  // GET SELECTED VALUE
-  // ====================================
 
   const getSelected = (
     day,
@@ -174,9 +162,6 @@ const weekStartDate =
     );
   };
 
-  // ====================================
-  // SAVE PLAN
-  // ====================================
 
   const handleSave =
     async () => {
@@ -211,9 +196,6 @@ const weekStartDate =
     }
   };
 
-  // ====================================
-  // GENERATE GROCERY
-  // ====================================
 
   const handleGenerateGrocery =
     async () => {
@@ -244,9 +226,6 @@ const weekStartDate =
     }
   };
 
-  // ====================================
-  // STATS
-  // ====================================
 
   const totalMeals =
     entries.length;
@@ -262,9 +241,6 @@ const weekStartDate =
       title="Meal Planner"
     >
 
-      {/* ========================= */}
-      {/* STATS */}
-      {/* ========================= */}
 
       <div className="planner-stats-grid">
 
@@ -324,13 +300,9 @@ const weekStartDate =
 
       </div>
 
-      {/* ========================= */}
-      {/* MAIN LAYOUT */}
-      {/* ========================= */}
 
       <div className="planner-layout">
 
-        {/* LEFT SIDE */}
 
         <div>
 
@@ -471,11 +443,9 @@ const weekStartDate =
 
         </div>
 
-        {/* RIGHT SIDEBAR */}
 
         <div className="planner-sidebar">
 
-          {/* NUTRITION */}
 
           <div className="page-card">
 
@@ -549,7 +519,6 @@ const weekStartDate =
 
           </div>
 
-          {/* AI SMART SUGGESTIONS */}
 
           <div className="page-card">
 
@@ -606,7 +575,6 @@ const weekStartDate =
 
           </div>
 
-          {/* GROCERY STATUS */}
 
           <div className="page-card">
 
@@ -640,9 +608,6 @@ const weekStartDate =
 
       </div>
 
-      {/* ========================= */}
-      {/* FULL AI ANALYSIS MODAL */}
-      {/* ========================= */}
 
       {showFullAnalysis && (
 
@@ -679,7 +644,6 @@ const weekStartDate =
 
             </div>
 
-            {/* WEEKLY NUTRITION */}
 
             <div className="ai-analysis-section">
 
@@ -733,7 +697,6 @@ const weekStartDate =
 
             </div>
 
-            {/* AI INSIGHTS */}
 
             <div className="ai-analysis-section">
 

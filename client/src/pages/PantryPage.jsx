@@ -6,9 +6,6 @@ import "../styles/PantryPage.css";
 
 const pantrySuggestions = [
 
-  // =========================
-  // VEGETABLES
-  // =========================
 
   {
     name: "Potato",
@@ -122,9 +119,6 @@ const pantrySuggestions = [
     shelfLife: 4,
   },
 
-  // =========================
-  // FRUITS
-  // =========================
 
   {
     name: "Apple",
@@ -182,9 +176,6 @@ const pantrySuggestions = [
     shelfLife: 10,
   },
 
-  // =========================
-  // DAIRY
-  // =========================
 
   {
     name: "Milk",
@@ -234,9 +225,6 @@ const pantrySuggestions = [
     shelfLife: 180,
   },
 
-  // =========================
-  // GRAINS
-  // =========================
 
   {
     name: "Rice",
@@ -286,9 +274,6 @@ const pantrySuggestions = [
     shelfLife: 120,
   },
 
-  // =========================
-  // PULSES
-  // =========================
 
   {
     name: "Toor Dal",
@@ -338,9 +323,6 @@ const pantrySuggestions = [
     shelfLife: 240,
   },
 
-  // =========================
-  // FLOUR
-  // =========================
 
   {
     name: "Atta",
@@ -374,9 +356,6 @@ const pantrySuggestions = [
     shelfLife: 120,
   },
 
-  // =========================
-  // SPICES
-  // =========================
 
   {
     name: "Turmeric Powder",
@@ -418,9 +397,6 @@ const pantrySuggestions = [
     shelfLife: 365,
   },
 
-  // =========================
-  // OILS
-  // =========================
 
   {
     name: "Sunflower Oil",
@@ -446,9 +422,6 @@ const pantrySuggestions = [
     shelfLife: 180,
   },
 
-  // =========================
-  // BAKERY
-  // =========================
 
   {
     name: "Bread",
@@ -474,9 +447,6 @@ const pantrySuggestions = [
     shelfLife: 3,
   },
 
-  // =========================
-  // SNACKS
-  // =========================
 
   {
     name: "Biscuits",
@@ -510,9 +480,6 @@ const pantrySuggestions = [
     shelfLife: 120,
   },
 
-  // =========================
-  // BEVERAGES
-  // =========================
 
   {
     name: "Tea",
@@ -546,9 +513,6 @@ const pantrySuggestions = [
     shelfLife: 30,
   },
 
-  // =========================
-  // FROZEN
-  // =========================
 
   {
     name: "Frozen Peas",
@@ -574,9 +538,6 @@ const pantrySuggestions = [
     shelfLife: 120,
   },
 
-  // =========================
-  // SWEETS
-  // =========================
 
   {
     name: "Chocolate",
@@ -594,9 +555,6 @@ const pantrySuggestions = [
     shelfLife: 90,
   },
 
-  // =========================
-  // READY TO COOK
-  // =========================
 
   {
     name: "Instant Noodles",
@@ -622,9 +580,6 @@ const pantrySuggestions = [
     shelfLife: 15,
   },
 
-  // =========================
-  // DRY FRUITS
-  // =========================
 
   {
     name: "Almonds",
@@ -650,9 +605,6 @@ const pantrySuggestions = [
     shelfLife: 240,
   },
 
-  // =========================
-  // HOUSEHOLD
-  // =========================
 
   {
     name: "Dishwash Liquid",
@@ -699,9 +651,6 @@ function PantryPage() {
     },
   });
 
-  // ====================================
-  // FETCH ITEMS
-  // ====================================
 
   const fetchItems = async () => {
     try {
@@ -719,9 +668,6 @@ function PantryPage() {
     }
   };
 
-  // ====================================
-  // FETCH SMART SUGGESTIONS
-  // ====================================
 
   const fetchSmartSuggestions = async () => {
     try {
@@ -741,9 +687,6 @@ function PantryPage() {
     fetchSmartSuggestions();
   }, []);
 
-  // ====================================
-  // CATEGORIES
-  // ====================================
 
   const categories = [
     ...new Set(
@@ -753,9 +696,6 @@ function PantryPage() {
     ),
   ];
 
-  // ====================================
-  // QUICK ADD ITEMS
-  // ====================================
 
   const quickAddItems = useMemo(() => {
     return pantrySuggestions.filter(
@@ -764,9 +704,6 @@ function PantryPage() {
     );
   }, [selectedCategory]);
 
-  // ====================================
-  // FILTERED ITEMS
-  // ====================================
 
   const filteredItems = useMemo(() => {
     return items.filter((item) => {
@@ -781,9 +718,6 @@ function PantryPage() {
     });
   }, [items, search]);
 
-  // ====================================
-  // ESTIMATED PANTRY COST
-  // ====================================
 
   const estimatedCost = useMemo(() => {
     return items.reduce((total, item) => {
@@ -795,9 +729,6 @@ function PantryPage() {
     }, 0);
   }, [items]);
 
-  // ====================================
-  // EXPIRING SOON
-  // ====================================
 
   const expiringSoonCount = useMemo(() => {
     return items.filter((item) => {
@@ -818,9 +749,6 @@ function PantryPage() {
     }).length;
   }, [items]);
 
-  // ====================================
-  // EXPIRED
-  // ====================================
 
   const expiredCount = useMemo(() => {
     return items.filter((item) => {
@@ -833,9 +761,6 @@ function PantryPage() {
     }).length;
   }, [items]);
 
-  // ====================================
-  // LOW STOCK
-  // ====================================
 
   const lowStockCount = useMemo(() => {
     return items.filter(
@@ -845,9 +770,6 @@ function PantryPage() {
     ).length;
   }, [items]);
 
-  // ====================================
-  // PANTRY HEALTH
-  // ====================================
 
   const pantryHealth = useMemo(() => {
     if (items.length === 0) return 0;
@@ -870,9 +792,6 @@ function PantryPage() {
     );
   }, [items]);
 
-  // ====================================
-  // QUICK ADD
-  // ====================================
 
   const handleQuickAdd = async (
     item
@@ -943,9 +862,6 @@ function PantryPage() {
     }
   };
 
-  // ====================================
-  // CONSUME ITEM
-  // ====================================
 
   const handleConsume = async (
     id
@@ -967,9 +883,6 @@ function PantryPage() {
     }
   };
 
-  // ====================================
-  // DELETE ITEM
-  // ====================================
 
   const handleDelete = async (
     id
@@ -990,9 +903,6 @@ function PantryPage() {
     }
   };
 
-  // ====================================
-  // EXPIRY STATUS
-  // ====================================
 
   const getExpiryStatus = (
     expiryDate
@@ -1022,9 +932,6 @@ function PantryPage() {
   return (
     <DashboardLayout title="Pantry">
 
-      {/* ========================= */}
-      {/* STATS */}
-      {/* ========================= */}
 
       <div className="pantry-stats-grid">
 
@@ -1063,9 +970,6 @@ function PantryPage() {
 
       </div>
 
-      {/* ========================= */}
-      {/* SMART SUGGESTIONS */}
-      {/* ========================= */}
 
       {smartSuggestions.length > 0 && (
 
@@ -1127,13 +1031,9 @@ function PantryPage() {
         </div>
       )}
 
-      {/* ========================= */}
-      {/* MAIN GRID */}
-      {/* ========================= */}
 
       <div className="row g-4">
 
-        {/* LEFT */}
 
         <div className="col-xl-5">
 
@@ -1231,7 +1131,6 @@ function PantryPage() {
 
         </div>
 
-        {/* RIGHT */}
 
         <div className="col-xl-7">
 

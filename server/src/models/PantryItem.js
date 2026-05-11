@@ -40,7 +40,6 @@ const pantryItemSchema = new mongoose.Schema(
       min: 0,
     },
 
-    // ✅ SMART FEATURES
 
     usageCount: {
       type: Number,

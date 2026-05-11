@@ -14,14 +14,22 @@ const dashboardRoutes = require("./routes/dashboardRoutes");
 
 const app = express();
 
+const normalizeOrigin = (origin) => origin.replace(/\/$/, "");
+
 const allowedOrigins = process.env.CLIENT_URL
-  ? process.env.CLIENT_URL.split(",").map((origin) => origin.trim())
+  ? process.env.CLIENT_URL.split(",")
+      .map((origin) => normalizeOrigin(origin.trim()))
+      .filter(Boolean)
   : [];
 
 app.use(
   cors({
     origin(origin, callback) {
-      if (!origin || allowedOrigins.length === 0 || allowedOrigins.includes(origin)) {
+      if (
+        !origin ||
+        allowedOrigins.length === 0 ||
+        allowedOrigins.includes(normalizeOrigin(origin))
+      ) {
         callback(null, true);
         return;
       }

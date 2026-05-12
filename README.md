@@ -198,6 +198,9 @@ VITE_API_URL=http://localhost:5000/api
 - Purchase tracking
 - AI grocery insights
 
+## AI Meal Suggestions
+NutriCart AI uses Gemini API to generate personalized meal ideas based on pantry items and saved recipes.
+
 ## Key Highlights
 
 - Full MERN stack application

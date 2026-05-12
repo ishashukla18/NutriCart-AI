@@ -8,6 +8,7 @@ const { notFound, errorHandler } = require("./middleware/errorMiddleware");
 const mealPlanRoutes = require("./routes/mealPlanRoutes");
 const groceryListRoutes = require("./routes/groceryListRoutes");
 const dashboardRoutes = require("./routes/dashboardRoutes");
+const aiRoutes = require("./routes/aiRoutes");
 
 
 
@@ -50,6 +51,7 @@ app.use("/api/recipes", recipeRoutes);
 app.use("/api/meal-plans", mealPlanRoutes);
 app.use("/api/grocery-lists", groceryListRoutes);
 app.use("/api/dashboard", dashboardRoutes);
+app.use("/api/ai", aiRoutes);
 
 
 

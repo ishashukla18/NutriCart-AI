@@ -12,6 +12,70 @@
   top: 1rem;
 }
 
+.ai-meal-panel {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(37, 99, 235, 0.08),
+      rgba(249, 115, 22, 0.08)
+    ),
+    #ffffff;
+}
+
+.ai-meal-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 5px;
+  background: linear-gradient(
+    180deg,
+    #2563eb,
+    #f97316
+  );
+}
+
+.ai-meal-actions {
+  margin-top: 1rem;
+}
+
+.ai-generate-btn {
+  border: none;
+  border-radius: 999px;
+  padding: 0.75rem 1.2rem;
+  color: #ffffff;
+  font-weight: 800;
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #f97316
+  );
+  box-shadow:
+    0 14px 28px rgba(37, 99, 235, 0.2);
+}
+
+.ai-generate-btn:hover:not(:disabled) {
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.ai-generate-btn:disabled {
+  opacity: 0.72;
+  cursor: not-allowed;
+}
+
+.ai-suggestions-box {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(37, 99, 235, 0.12);
+  color: #334155;
+  line-height: 1.7;
+  white-space: pre-wrap;
+}
+
 .recipe-header-block h2,
 .recipes-list-header h2 {
   margin-bottom: 0.35rem;

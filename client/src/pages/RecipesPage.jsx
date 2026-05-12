@@ -138,6 +138,10 @@ function RecipesPage() {
   const [recipes, setRecipes] = useState([]);
   const [smartRecipes, setSmartRecipes] =
     useState([]);
+  const [aiSuggestions, setAiSuggestions] =
+    useState("");
+  const [aiLoading, setAiLoading] =
+    useState(false);
 
   const [search, setSearch] = useState("");
 
@@ -317,8 +321,61 @@ function RecipesPage() {
     }
   };
 
+  const handleGenerateAiSuggestions = async () => {
+    setError("");
+    setSuccess("");
+    setAiLoading(true);
+
+    try {
+      const { data } = await api.get(
+        "/ai/meal-suggestions",
+        authConfig()
+      );
+
+      setAiSuggestions(data.suggestions);
+    } catch (err) {
+      setError(
+        err.response?.data?.message ||
+          "Failed to generate AI meal suggestions"
+      );
+    } finally {
+      setAiLoading(false);
+    }
+  };
+
   return (
     <DashboardLayout title="Recipes">
+
+      <div className="page-card ai-meal-panel mb-4">
+        <div className="recipe-header-block">
+          <h2>
+            NutriCart AI Meal Ideas
+          </h2>
+
+          <p>
+            Gemini suggests meals from your pantry and saved recipes.
+          </p>
+        </div>
+
+        <div className="ai-meal-actions">
+          <button
+            type="button"
+            className="btn ai-generate-btn"
+            onClick={handleGenerateAiSuggestions}
+            disabled={aiLoading}
+          >
+            {aiLoading
+              ? "Generating..."
+              : "Generate AI Suggestions"}
+          </button>
+        </div>
+
+        {aiSuggestions && (
+          <div className="ai-suggestions-box">
+            {aiSuggestions}
+          </div>
+        )}
+      </div>
 
 
       {smartRecipes.length > 0 && (
